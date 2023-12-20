@@ -32,9 +32,16 @@ def get_playlist():
 
 
 def shuffle_playlist():
-    unshuffled_playlist = get_playlist()
-    shuffled_playlist = random.sample(unshuffled_playlist, len(unshuffled_playlist))
-    print(shuffled_playlist)
+    """arranges songs from get_playlist() in random order"""
+    playlist = get_playlist()
+    shuffled_playlist = random.sample(playlist, len(playlist))
+
+    for track in shuffled_playlist:
+        if track == shuffled_playlist[0]:
+            print("\nNow Playing:", track, "\n")
+            print("Queue:")
+        else:
+            print(track)
 
 
 shuffle_playlist()
